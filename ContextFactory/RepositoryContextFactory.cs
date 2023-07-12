@@ -10,11 +10,11 @@ namespace ClubSwimmers.ContextFactory
         {
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsetting.json")
+                .AddJsonFile("appsettings.json")
                 .Build();
 
             var builder = new DbContextOptionsBuilder<RepositoryContext>()
-                .UseSqlite(configuration.GetConnectionString("ClubswimmerString"),
+                .UseSqlite(configuration.GetConnectionString("ClubSwimmerString"),
                 b => b.MigrationsAssembly("ClubSwimmers"));
 
             return new RepositoryContext(builder.Options);
